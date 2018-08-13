@@ -1,11 +1,9 @@
 sudo: false
-language:
-    - java
-    - node_js
-script:
-   - ./bin/ci
 before_script:
     - lein deps
+    - yarn install
+script:
+   - ./bin/ci
 cache:
     directories:
         - node_modules
