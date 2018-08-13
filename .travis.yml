@@ -1,0 +1,13 @@
+sudo: false
+language:
+    - java
+    - node_js
+script:
+   - ./bin/ci
+before_script:
+    - lein deps
+cache:
+    directories:
+        - node_modules
+        - ~/.yarn
+        - ~/.yarn-cache
