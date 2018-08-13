@@ -3,7 +3,7 @@ before_script:
     - lein deps
     - yarn install
 script:
-   - ./bin/ci
+   - yarn run ci
 cache:
     directories:
         - node_modules
