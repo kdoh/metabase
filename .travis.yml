@@ -1,9 +1,17 @@
 sudo: false
+language: java
 before_script:
     - lein deps
     - yarn install
-script:
-   - yarn run ci
+jobs:
+    include:
+        - stage: "Frontend Unit"
+          script: yarn run test-karma
+          script: yarn run test-unit --coverage
+        - stage: "Frontend Integration"
+          script: ./bin/build-for-test
+          script: yarn run test-integrated-no-build
+
 cache:
     directories:
         - node_modules
