@@ -5,10 +5,12 @@ before_script:
     - yarn install
 jobs:
     include:
-        - stage: "Frontend Unit"
+        - stage: "Drivers"
+          if: branch = master
+        - stage: "Frontend"
+          language: node_js
           script: yarn run test-karma
           script: yarn run test-unit --coverage
-        - stage: "Frontend Integration"
           script: ./bin/build-for-test
           script: yarn run test-integrated-no-build
 
