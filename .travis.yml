@@ -6,14 +6,21 @@ before_script:
 jobs:
     include:
         - stage: "Lint"
+          name: "JS Lint"
           script: yarn run lint
         - script: yarn run flow
+          name: "JSFlow"
         - script: lein eastwood
+          name: "Clojure Eastwood"
         - script: lein bikeshed
+          name: "Clojure Bikeshed"
+
         - stage: "Test"
           install: skip
           script: yarn run test-karma
+          name: "JS Karma"
         - script: yarn run test-unit
+          name: "JS Unit"
 
 cache:
     directories:
