@@ -8,7 +8,6 @@ jobs:
         - stage: "Drivers"
           if: branch = master
         - stage: "Frontend"
-          language: node_js
           script: yarn run test-karma
           script: yarn run test-unit --coverage
           script: ./bin/build-for-test
