@@ -5,13 +5,15 @@ before_script:
     - yarn install
 jobs:
     include:
-        - stage: "Drivers"
-          if: branch = master
-        - stage: "Frontend"
+        - stage: "Lint"
+          script: lein eastwood
+          script: lein bikeshed
+          script: yarn run lint
+          script: yarn run flow
+
+        - stage: "Test"
           script: yarn run test-karma
-          script: yarn run test-unit --coverage
-          script: ./bin/build-for-test
-          script: yarn run test-integrated-no-build
+          script: yarn run test-unit
 
 cache:
     directories:
