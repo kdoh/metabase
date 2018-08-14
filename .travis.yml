@@ -6,15 +6,17 @@ before_script:
 jobs:
     include:
         - stage: "Lint"
-          script: lein eastwood
-          script: lein bikeshed
-          script: yarn run lint
-          script: yarn run flow
+          script:
+              - lein eastwood
+              - lein bikeshed
+              - yarn run lint
+              - yarn run flow
 
         - stage: "Test"
           install: skip
-          script: yarn run test-karma
-          script: yarn run test-unit
+          script:
+              - yarn run test-karma
+              - yarn run test-unit
 
 cache:
     directories:
