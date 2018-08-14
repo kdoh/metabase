@@ -12,6 +12,7 @@ jobs:
           script: yarn run flow
 
         - stage: "Test"
+          install: skip
           script: yarn run test-karma
           script: yarn run test-unit
 
