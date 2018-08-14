@@ -1,6 +1,5 @@
 sudo: false
-language: java
-before_script:
+install:
     - lein deps
     - yarn install
 jobs:
@@ -27,3 +26,7 @@ cache:
         - node_modules
         - ~/.yarn
         - ~/.yarn-cache
+
+# Fail fast. If any stage script fails we should immediately fail the build.
+matrix:
+  fast_finish: true
