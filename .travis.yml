@@ -6,11 +6,8 @@ before_script:
 jobs:
     include:
         - stage: "Lint"
-          script:
-              - lein eastwood
-              - lein bikeshed
-              - yarn run lint
-              - yarn run flow
+          script: yarn run lint
+          script: yarn run flow
 
         - stage: "Test"
           install: skip
