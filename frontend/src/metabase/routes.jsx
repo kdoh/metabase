@@ -93,6 +93,8 @@ import Overworld from "metabase/containers/Overworld";
 import ArchiveApp from "metabase/home/containers/ArchiveApp";
 import SearchApp from "metabase/home/containers/SearchApp";
 
+import NewFeature from "metabase/new-feature/containers/NewFeature";
+
 const MetabaseIsSetup = UserAuthWrapper({
   predicate: authData => !authData.hasSetupToken,
   failureRedirectPath: "/setup",
@@ -310,6 +312,8 @@ export const getRoutes = store => (
           component={TableQuestionsContainer}
         />
       </Route>
+
+      <Route path="/cool-new-feature" component={NewFeature} />
 
       {/* PULSE */}
       <Route path="/pulse" title={t`Pulses`}>
